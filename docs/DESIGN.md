@@ -7,7 +7,7 @@
 **Proje Türü:** Kişisel portfolyo / CV web sitesi  
 **Hedef Kitle:** İşverenler, iş ortakları, veri bilimi alanındaki profesyoneller  
 **Tasarım Dili:** Modern, minimal, teknik/profesyonel  
-**Stil:** Koyu tema (dark mode), kurumsal ve güvenilir his veren bir görünüm
+**Stil:** Koyu tema (dark mode) varsayılan, gündüz modu (light mode) seçeneği ile kurumsal ve güvenilir his veren bir görünüm
 
 ---
 
@@ -35,9 +35,19 @@
 | Slate 900 | `bg-slate-900` | Derin gölgeler, overlay'ler |
 | Emerald 500 | `text-emerald-500` | Başarı göstergeleri, "Business Impact" vurgusu |
 
+### Light Mode Renkleri
+
+| Değişken | Dark | Light |
+|----------|------|-------|
+| Arka plan | `#101b22` | `#f8fafc` |
+| Kart | `#1e293b` | `#ffffff` |
+| Metin (ana) | `#f8fafc` | `#0f172a` |
+| Metin (ikincil) | `#94a3b8` | `#475569` |
+| Kenarlık | `rgba(255,255,255,0.05)` | `rgba(15,23,42,0.08)` |
+
 ### Opaklık Kullanımı
 
-- `border-white/5` — İnce ayırıcı çizgiler
+- `border-border` — Tema uyumlu ince ayırıcı çizgiler
 - `bg-primary/10`, `bg-primary/20` — Hafif vurgu arka planları
 - `border-primary/20`, `border-primary/30` — Vurgulu kenarlıklar
 
@@ -112,7 +122,7 @@
 
 - **Konum:** Fixed, üstte
 - **Arka plan:** `bg-background-dark/80 backdrop-blur-md`
-- **Kenarlık:** `border-b border-white/5`
+- **Kenarlık:** `border-b border-border`
 
 ### 5.2 Hero Section
 
@@ -239,7 +249,7 @@
 - **Butonlar:** `rounded-full` (pill) veya `rounded-lg`
 - **Kartlar:** `rounded-xl`
 - **Badge:** `rounded-full`
-- **Genel border:** `border-white/5` — Çok ince, düşük kontrast
+- **Genel border:** `border-border` — Tema uyumlu ince kenarlık
 
 ---
 
@@ -273,4 +283,4 @@
 1. **Başlık:** `index.html` içindeki "My Google AI Studio App" → "Alex Veri | Senior Data Scientist" olarak güncellenmeli
 2. **Focus states:** Klavye navigasyonu için `focus:ring` vb. eklenebilir
 3. **Loading:** Sayfa yüklenirken skeleton veya loading state düşünülebilir
-4. **Dark/Light:** Şu an sadece dark mode; tercihe bağlı light mode eklenebilir
+4. **Dark/Light:** Dark ve light mode desteklenir; sol üst köşedeki tema geçiş butonu ile değiştirilebilir. Tercih localStorage'da saklanır.

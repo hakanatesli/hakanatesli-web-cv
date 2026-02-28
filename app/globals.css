@@ -1,26 +1,148 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Tema değişkenleri - @theme inline bu değişkenleri doğrudan kullanır */
+/* Dark mode (varsayılan) */
+html:not([data-theme="light"]),
+html[data-theme="dark"] {
+  --theme-bg: #101b22;
+  --theme-bg-card: #1e293b;
+  --theme-fg: #f8fafc;
+  --theme-fg-muted: #e2e8f0;
+  --theme-muted: #94a3b8;
+  --theme-muted-soft: #64748b;
+  --theme-muted-subtle: #475569;
+  --theme-border: rgba(255, 255, 255, 0.05);
+  --theme-badge-bg: #334155;
+  --theme-badge-fg: #cbd5e1;
+  --theme-icon-bg: #1e293b;
+  --theme-timeline: #64748b;
+  --theme-scrollbar: #334155;
+  --theme-scrollbar-hover: #475569;
+  --theme-neural-dot: rgba(13, 154, 242, 0.05);
+}
+
+/* Light mode */
+html[data-theme="light"] {
+  --theme-bg: #f8fafc;
+  --theme-bg-card: #ffffff;
+  --theme-fg: #0f172a;
+  --theme-fg-muted: #1e293b;
+  --theme-muted: #475569;
+  --theme-muted-soft: #64748b;
+  --theme-muted-subtle: #94a3b8;
+  --theme-border: rgba(15, 23, 42, 0.08);
+  --theme-badge-bg: #e2e8f0;
+  --theme-badge-fg: #475569;
+  --theme-icon-bg: #f1f5f9;
+  --theme-timeline: #94a3b8;
+  --theme-scrollbar: #cbd5e1;
+  --theme-scrollbar-hover: #94a3b8;
+  --theme-neural-dot: rgba(13, 154, 242, 0.08);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: #0d9af2;
+  --color-primary-light: #3db4ff;
+  --color-emerald: #10b981;
+  --color-background-dark: var(--theme-bg);
+  --color-background-card: var(--theme-bg-card);
+  --color-foreground: var(--theme-fg);
+  --color-foreground-muted: var(--theme-fg-muted);
+  --color-muted: var(--theme-muted);
+  --color-muted-soft: var(--theme-muted-soft);
+  --color-muted-subtle: var(--theme-muted-subtle);
+  --color-border: var(--theme-border);
+  --color-badge: var(--theme-badge-bg);
+  --color-badge-foreground: var(--theme-badge-fg);
+  --color-icon-bg: var(--theme-icon-bg);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: auto;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--theme-bg);
+  color: var(--theme-fg-muted);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.neural-bg {
+  background-color: var(--theme-bg);
+  background-image: radial-gradient(
+    circle at 2px 2px,
+    var(--theme-neural-dot) 1px,
+    transparent 0
+  );
+  background-size: 40px 40px;
+}
+
+.glow-pill {
+  box-shadow: 0 0 15px rgba(13, 154, 242, 0.3);
+}
+
+.glow-node {
+  box-shadow: 0 0 15px rgba(13, 154, 242, 0.4);
+}
+
+.glow-button {
+  box-shadow: 0 8px 25px rgba(13, 154, 242, 0.2);
+}
+
+.gradient-overlay {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--theme-bg) 30%, transparent) 50%,
+    color-mix(in srgb, var(--theme-bg) 90%, transparent) 100%
+  );
+}
+
+.timeline-line-bg {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--theme-timeline) 10%,
+    var(--theme-timeline) 90%,
+    transparent
+  );
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--theme-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--theme-scrollbar);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-scrollbar-hover);
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
