@@ -14,6 +14,7 @@ function getCompanyPosition(index: number, total: number): number {
   if (total === 1) return 50;
   if (total === 2) return index === 0 ? 30 : 70;
   if (total === 3) return [15, 50, 85][index];
+  if (total === 4) return [8, 36, 64, 92][index];
   return 10 + (80 * index) / (total - 1);
 }
 
@@ -37,10 +38,14 @@ export default function ExperienceSection() {
         (acc, c) => acc + c.projects.length,
         0
       );
-      // 1.5 for reveal + hold, per company: 0.5 zoom-in + projects + 0.5 zoom-out
+      // 1.5 for reveal + hold, per company with projects: 0.5 zoom-in + projects + 0.5 zoom-out
       const totalScreens =
         1.5 +
-        companies.reduce((acc, c) => acc + c.projects.length + 1, 0) +
+        companies.reduce(
+          (acc, c) =>
+            acc + (c.projects.length > 0 ? c.projects.length + 1 : 0),
+          0
+        ) +
         0.5;
 
       const zoomScale = getZoomScale();
@@ -97,8 +102,10 @@ export default function ExperienceSection() {
       // Hold to let user see the full timeline
       tl.to({}, { duration: 0.5 });
 
-      // Phase: Company deep-dives
+      // Phase: Company deep-dives (skip entries with no projects)
       companies.forEach((company, companyIdx) => {
+        if (company.projects.length === 0) return;
+
         const nodeEl = nodeRefs.current[companyIdx];
         const circle = nodeEl?.querySelector(".node-circle");
         const target = companyZoomTargets[companyIdx];

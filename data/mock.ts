@@ -53,6 +53,15 @@ export const personalInfo: PersonalInfo = {
 
 export const companies: Company[] = [
   {
+    id: "sakarya-university",
+    name: "Sakarya University",
+    role: "B.Sc. Computer Engineering",
+    period: "2017 – 2021",
+    startYear: 2017,
+    endYear: 2021,
+    projects: [],
+  },
+  {
     id: "ford-otosan",
     name: "Ford Otosan",
     role: "Data Analysis and Reporting Specialist",
@@ -65,7 +74,7 @@ export const companies: Company[] = [
         title: "Manufacturing Info Systems (Digital Twin)",
         problem:
           "Production line monitoring relied on disparate sensor systems and manual inspection, making it difficult to identify bottlenecks and inefficiencies across the factory floor.",
-        technologies: ["Python", "SQL", "SybaseDB", "Power BI", "SAP Analytics"],
+        technologies: ["Cassandra DB", "SybaseDB", "SQL", "SAP Web Intelligence"],
         impact:
           "Developed a 'Digital Twin' of production lines using sensor data, improving factory efficiency by 30%.",
       },
@@ -74,7 +83,7 @@ export const companies: Company[] = [
         title: "Energy Management System",
         problem:
           "Facility-wide resource consumption (Gas, Water, Electricity) lacked centralized, real-time monitoring, hindering sustainability efforts and cost control.",
-        technologies: ["Python", "SQL", "Power BI", "Data Studio", "ETL"],
+        technologies: ["SybaseDB", "SQL", "Tableau", "SAP Web Intelligence"],
         impact:
           "Built a mobile-responsive monitoring system for facility-wide resource consumption, recognized as a key corporate sustainability initiative.",
       },
@@ -83,7 +92,7 @@ export const companies: Company[] = [
         title: "Executive Dashboards",
         problem:
           "Plant leadership lacked real-time visibility into critical factory KPIs, forcing reliance on periodic manual reports for strategic decision-making.",
-        technologies: ["Power BI", "SAP Analytics", "SQL", "SybaseDB", "ETL"],
+        technologies: ["SybaseDB", "SQL", "Tableau"],
         impact:
           "Designed and implemented comprehensive executive dashboards providing real-time visibility into critical factory KPIs, enabling data-driven strategic decision-making.",
       },
@@ -102,7 +111,7 @@ export const companies: Company[] = [
         title: "ML Infrastructure",
         problem:
           "Data Science lifecycle lacked standardization, with inconsistent workflows, fragmented tooling, and no unified deployment practices across the team.",
-        technologies: ["GCP", "Airflow", "MLflow", "Docker", "Python"],
+        technologies: ["GCP", "Airflow", "MLflow", "Docker", "Python", "Bigquery SQL", "FastAPI"],
         impact:
           "Standardized the entire DS lifecycle by migrating workflows to GCP, Airflow, and MLflow, establishing a unified Kanban methodology and a custom Python utility library.",
       },
@@ -111,7 +120,7 @@ export const companies: Company[] = [
         title: "Auto Hunt (Pricing Optimization)",
         problem:
           "The existing optimization engine for balancing price-commission pairs was underperforming, leaving significant revenue and commission potential untapped.",
-        technologies: ["Python", "GCP", "BigQuery", "Airflow", "MLflow"],
+        technologies: ["Optimization Algorithms", "Price Elasticity"],
         impact:
           "Re-engineered and took full ownership of the optimization engine, achieving a 120% increase in weekly sales revenue and a 45% boost in commission revenue.",
       },
@@ -120,7 +129,7 @@ export const companies: Company[] = [
         title: "Deal Visibility (Scoring System)",
         problem:
           "Storefront campaign prioritization lacked a data-driven approach, resulting in suboptimal product placement and missed high-engagement opportunities.",
-        technologies: ["Python", "FastAPI", "Kubernetes", "GCP", "BigQuery"],
+        technologies: ["FastAPI", "LightGBM", "BigQuery"],
         impact:
           "Architected and deployed an end-to-end scoring service with minimal latency, predicting a 30% increase in product views for prioritized campaigns.",
       },
@@ -139,7 +148,7 @@ export const companies: Company[] = [
         title: "AI-Driven Sales Forecasting",
         problem:
           "FMCG sector clients relied on traditional forecasting methods with limited accuracy, leading to poor demand planning and supply chain inefficiencies.",
-        technologies: ["Python", "Nixtla", "MLForecast", "NeuralForecast", "GCP"],
+        technologies: ["Nixtla", "StatsForecast", "MLForecast", "NeuralForecast"],
         impact:
           "Leading the development of AI-driven Sales Forecasting products specifically tailored for FMCG, enhancing prediction accuracy and supply chain resilience.",
       },
