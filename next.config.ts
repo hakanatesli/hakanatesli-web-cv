@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   output: "export",
   basePath: isGithubPages ? "/hakanatesli-web-cv" : "",
   assetPrefix: isGithubPages ? "/hakanatesli-web-cv/" : "",
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isGithubPages ? "/hakanatesli-web-cv" : "",
+  },
   images: {
     unoptimized: true,
     remotePatterns: [

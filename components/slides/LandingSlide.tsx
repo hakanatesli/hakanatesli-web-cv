@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
@@ -12,6 +11,11 @@ import { personalInfo } from "@/data/mock";
 export default function LandingSlide() {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const photoSrc =
+    personalInfo.photoUrl && !personalInfo.photoUrl.startsWith("http")
+      ? `${basePath}${personalInfo.photoUrl}`
+      : personalInfo.photoUrl;
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -59,20 +63,19 @@ export default function LandingSlide() {
           </span>
         </motion.div>
 
-        {personalInfo.photoUrl && (
+        {photoSrc && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
             className="mb-6 relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden ring-2 ring-primary/30 ring-offset-2 ring-offset-background shadow-xl"
           >
-            <Image
-              src={personalInfo.photoUrl}
+            <img
+              src={photoSrc}
               alt={`${personalInfo.name} ${personalInfo.surname}`}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 96px, 128px"
-              priority
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="eager"
+              decoding="async"
             />
           </motion.div>
         )}
