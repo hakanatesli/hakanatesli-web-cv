@@ -47,7 +47,7 @@ export const personalInfo: PersonalInfo = {
   name: "Hakan",
   surname: "Ateşli",
   title: "Senior Data Scientist",
-  photoUrl: "https://media.licdn.com/dms/image/v2/D4D03AQHRLEL4AodtQA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1689084057291?e=1773878400&v=beta&t=n1eWzaANPF_C8N6doGa0pr5SiP5lwEltjuanZ-MyI1Y",
+  photoUrl: "/profile.jpeg",
   skills: ["Machine Learning", "Sales Forecasting", "MLOps", "Time Series", "Data Engineering"],
 };
 
