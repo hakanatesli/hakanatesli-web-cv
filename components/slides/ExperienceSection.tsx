@@ -267,18 +267,28 @@ export default function ExperienceSection() {
                 <div className="node-circle h-4 w-4 rounded-full border-2 border-muted-subtle bg-background-dark transition-colors duration-300" />
 
                 {/* Info above the line */}
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 md:mb-6 text-center whitespace-nowrap">
-                  <p className="text-[8px] md:text-[10px] font-mono tracking-widest text-muted-subtle mb-1">
+                <div
+                  className={`absolute bottom-full left-1/2 -translate-x-1/2 text-center ${
+                    i % 2 === 0 ? "mb-4 md:mb-6" : "mb-8 md:mb-6"
+                  } w-20 md:w-auto`}
+                >
+                  <p className="text-[8px] md:text-[10px] font-mono tracking-widest text-muted-subtle mb-1 whitespace-nowrap">
                     {company.startYear} — {company.endYear ?? "Present"}
                   </p>
-                  <p className="text-xs md:text-sm font-bold text-foreground">
+                  <p className="text-[10px] leading-tight md:text-sm font-bold text-foreground whitespace-normal md:whitespace-nowrap break-words">
                     {company.name}
                   </p>
                 </div>
 
                 {/* Info below the line */}
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 md:mt-6 text-center whitespace-nowrap">
-                  <p className="text-[10px] md:text-xs text-muted">{company.role}</p>
+                <div
+                  className={`absolute top-full left-1/2 -translate-x-1/2 text-center ${
+                    i % 2 === 0 ? "mt-8 md:mt-6" : "mt-4 md:mt-6"
+                  } w-24 md:w-auto`}
+                >
+                  <p className="text-[9px] leading-tight md:text-xs text-muted whitespace-normal md:whitespace-nowrap break-words">
+                    {company.role}
+                  </p>
                 </div>
               </div>
             );

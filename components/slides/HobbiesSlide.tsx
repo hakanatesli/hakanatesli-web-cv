@@ -46,8 +46,8 @@ export default function HobbiesSlide() {
 
   return (
     <SlideWrapper ref={sectionRef} id="hobbies" className="neural-bg">
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 md:px-20">
-        <div className="hobby-title text-center mb-10">
+      <div className="relative z-10 flex h-full flex-col items-center justify-start md:justify-center overflow-y-auto px-4 py-8 md:px-20 md:py-0">
+        <div className="hobby-title text-center mb-6 md:mb-10">
           <p className="text-xs font-bold tracking-[0.3em] uppercase text-primary mb-2">
             Personal Odyssey
           </p>
@@ -56,11 +56,11 @@ export default function HobbiesSlide() {
           </h2>
         </div>
 
-        <div className="grid w-full max-w-[1000px] grid-cols-1 md:grid-cols-4 gap-3 auto-rows-[180px] md:auto-rows-[170px]">
+        <div className="grid w-full max-w-[1000px] grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[130px] md:auto-rows-[170px] pb-4 md:pb-0">
           {hobbies.map((hobby) => (
             <div
               key={hobby.id}
-              className={`hobby-card ${hobby.colSpan === 2 ? "md:col-span-2" : ""} ${
+              className={`hobby-card ${hobby.colSpan === 2 ? "col-span-2 md:col-span-2" : ""} ${
                 hobby.rowSpan === 2 ? "md:row-span-2" : ""
               }`}
             >
